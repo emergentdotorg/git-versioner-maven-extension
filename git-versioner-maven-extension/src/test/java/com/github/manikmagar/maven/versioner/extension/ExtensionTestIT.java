@@ -241,7 +241,7 @@ public class ExtensionTestIT {
 			verifier.verifyTextInLog("Building parent-test-pom " + expectedVersion);
 			verifier.verifyTextInLog("Building cli " + expectedVersion);
 			verifier.verifyTextInLog(
-					"Setting parent com.github.manikmagar:parent-test-pom:pom:0 version to " + expectedVersion);
+					"Setting parent org.emergent.maven:parent-test-pom:pom:0 version to " + expectedVersion);
 			verifier.verifyTextInLog("Building lib " + expectedVersion);
 		}
 	}

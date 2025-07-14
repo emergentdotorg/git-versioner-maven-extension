@@ -7,7 +7,7 @@
         and then rename this file to extensions.xml and redeploy artifact so that extension is invoked.
      -->
     <extension>
-        <groupId>com.github.manikmagar</groupId>
+        <groupId>org.emergent.maven</groupId>
         <artifactId>git-versioner-maven-extension</artifactId>
         <version>V-LATEST-SNAPSHOT</version>
     </extension>

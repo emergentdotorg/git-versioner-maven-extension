@@ -6,7 +6,7 @@
 
     <artifactId>lib</artifactId>
     <parent>
-        <groupId>com.github.manikmagar</groupId>
+        <groupId>org.emergent.maven</groupId>
         <artifactId>parent-test-pom</artifactId>
         <version>0</version>
     </parent>
