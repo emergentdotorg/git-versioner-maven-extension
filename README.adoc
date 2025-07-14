@@ -293,3 +293,14 @@ All contributions are welcome. Please see link:CONTRIBUTING.adoc[Contributing] g
 
 == Acknowledgement
 This is inspired from Gradle plugin https://github.com/toolebox-io/gradle-git-versioner[toolebox-io/gradle-git-versioner] that I have been using for my Gradle projects. This maven plugin is my attempt to get those auto-version capabilities into my Maven builds.
+
+== Examples
+
+[source, shell]
+----
+./mvnw -DprocessAllModules=true -DgenerateBackupPoms=false  org.codehaus.mojo:versions-maven-plugin:2.18.0:set -DnextSnapshot=true
+
+./mvnw -DprocessAllModules=true -DgenerateBackupPoms=false  org.codehaus.mojo:versions-maven-plugin:2.18.0:set -DnewVersion=0.6.0
+
+----
+
