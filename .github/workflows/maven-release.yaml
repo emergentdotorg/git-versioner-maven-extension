@@ -14,7 +14,7 @@ jobs:
     with:
       java-version: '11'
       deploy-server: 'emergent-nexus'
-      disable-versioner: true
+      disable-versioner: false
 
   process-results:
     runs-on: ubuntu-latest
