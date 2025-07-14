@@ -162,6 +162,15 @@ gv.pattern.pattern=%M.%m.%p+%h
 |Patch Version
 |x.y.**1**
 
+|%P
+|Non-Zero Commit adjusted patch
+|Given _%M.%m.%P(-SNAPSHOT)_
+ with _%M=1_, _%m=2_, _%p=3_
+
+when c == 0 -> _1.2.3_
+
+when c > 0, = 5 -> _1.2.**4-SNAPSHOT**_
+
 |%c
 |Commit count
 |x.y.z-**4**

@@ -1,5 +1,7 @@
 package com.github.manikmagar.maven.versioner.core.version;
 
+import java.util.EnumSet;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import static java.lang.String.valueOf;
@@ -38,10 +40,15 @@ public class VersionPatternStrategy extends SemVerStrategy {
 
 	@Override
 	public String toVersionString() {
-		return new TokenReplacer(getVersionPattern()).replace(PatternToken.MAJOR, getVersion().getMajor())
+		int patch = getVersion().getPatch();
+		int commits = getVersion().getCommit();
+		return new TokenReplacer(getVersionPattern())
+				.replace(PatternToken.MAJOR, getVersion().getMajor())
 				.replace(PatternToken.MINOR, getVersion().getMinor())
-				.replace(PatternToken.PATCH, getVersion().getPatch())
-				.replace(PatternToken.COMMIT, getVersion().getCommit())
+				.replace(PatternToken.PATCH, patch)
+				.replace(PatternToken.SMART_PATCH, patch + (commits > 0 ? 1 : 0))
+				.replace(PatternToken.COMMIT, commits)
+				.replace(PatternToken.SILENT_COMMIT, commits)
 				.replace(PatternToken.BRANCH, getVersion().getBranch())
 				.replace(PatternToken.HASH_SHORT, getVersion().getHashShort())
 				.replace(PatternToken.HASH, getVersion().getHash()).toString();
@@ -61,23 +68,25 @@ public class VersionPatternStrategy extends SemVerStrategy {
 		public TokenReplacer replace(PatternToken token, String value) {
 			if (!text.contains(token.getToken()))
 				return this;
-			if (!PatternToken.COMMIT.equals(token)) {
+			Set<PatternToken> COMMIT_TOKENS = EnumSet.of(PatternToken.COMMIT, PatternToken.SILENT_COMMIT);
+			if (!COMMIT_TOKENS.contains(token)) {
 				if (text.contains(token.getToken())) {
 					text = text.replace(token.getToken(), value);
 				}
 			} else {
+				String repl = (token == PatternToken.SILENT_COMMIT) ? "" : value;
 				// Full regex to match the version string containing group regex
 				var fullRegex = ".*" + token.getTokenGroupRegex() + ".*";
 				if (Pattern.matches(fullRegex, text)) {
 					if (value != null && !value.trim().isEmpty() && !value.equals("0")) {
-						text = text.replace(token.getToken(), value);
+						text = text.replace(token.getToken(), repl);
 					} else {
 						text = text.replaceAll(token.getTokenGroupRegex(), "");
 					}
 				} else if (text.contains(token.getToken())) {
-					text = text.replace(token.getToken(), value);
+						text = text.replace(token.getToken(), repl);
+					}
 				}
-			}
 			return this;
 		}
 
@@ -92,7 +101,8 @@ public class VersionPatternStrategy extends SemVerStrategy {
 	}
 
 	public enum PatternToken {
-		MAJOR("%M"), MINOR("%m"), PATCH("%p"), COMMIT("%c"), BRANCH("%b"), HASH_SHORT("%h"), HASH("%H");
+		MAJOR("%M"), MINOR("%m"), PATCH("%p"), SMART_PATCH("%P"), COMMIT("%c"), SILENT_COMMIT("%C"),
+		BRANCH("%b"), HASH_SHORT("%h"), HASH("%H");
 
 		private final String token;
 		private final String tokenGroupRegex;
