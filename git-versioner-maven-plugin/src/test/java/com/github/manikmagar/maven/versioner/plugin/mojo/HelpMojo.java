@@ -60,7 +60,7 @@ public class HelpMojo extends AbstractMojo {
 	private int indentSize;
 
 	// groupId/artifactId/plugin-help.xml
-	private static final String PLUGIN_HELP_PATH = "/META-INF/maven/com.github.manikmagar/git-versioner-maven-plugin/plugin-help.xml";
+	private static final String PLUGIN_HELP_PATH = "/META-INF/maven/com.github.emergentdotorg/git-versioner-maven-plugin/plugin-help.xml";
 
 	private static final int DEFAULT_LINE_LENGTH = 80;
 

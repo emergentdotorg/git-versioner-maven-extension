@@ -9,9 +9,9 @@ ifdef::env-github[]
 endif::[]
 :toc: macro
 
-image:https://img.shields.io/github/release/manikmagar/git-versioner-maven-plugin.svg[Release,link=https://github.com/manikmagar/git-versioner-maven-plugin/releases]
-image:https://github.com/manikmagar/git-versioner-maven-plugin/workflows/build/badge.svg[Build Status,link=https://github.com/manikmagar/git-versioner-maven-plugin/actions]
-image:https://img.shields.io/github/license/manikmagar/git-versioner-maven-plugin[GitHub]
+image:https://img.shields.io/github/release/emergentdotorg/git-versioner-maven-plugin.svg[Release,link=https://github.com/emergentdotorg/git-versioner-maven-plugin/releases]
+image:https://github.com/emergentdotorg/git-versioner-maven-plugin/workflows/build/badge.svg[Build Status,link=https://github.com/emergentdotorg/git-versioner-maven-plugin/actions]
+image:https://img.shields.io/github/license/emergentdotorg/git-versioner-maven-plugin[GitHub]
 
 Generate the semver version using the git commit history and automatically set it to maven pom.
 
@@ -29,7 +29,7 @@ It then computes the version number upto current commit.
 The extension supports generating Semantic Versions `x.y.z` format. The format pattern is configurable to use
 values such as Git hash, branch name etc.
 
-See https://github.com/manikmagar/git-versioner-maven-extension-examples[manikmagar/git-versioner-maven-extension-examples]
+See https://github.com/emergentdotorg/git-versioner-maven-extension-examples[manikmagar/git-versioner-maven-extension-examples]
  for examples of using this extension.
 
 [#versionKeywords]
@@ -65,7 +65,7 @@ NOTE: The artifact id is *git-versioner-maven-_extension_*.
 <extensions xmlns="http://maven.apache.org/EXTENSIONS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://maven.apache.org/EXTENSIONS/1.0.0 https://maven.apache.org/xsd/core-extensions-1.0.0.xsd">
     <extension>
-        <groupId>com.github.manikmagar</groupId>
+        <groupId>org.emergent.maven</groupId>
         <artifactId>git-versioner-maven-extension</artifactId>
         <version>${latest-version-here}</version>
     </extension>
@@ -265,7 +265,7 @@ For Tag goal, it is possible to configure pom.xml to contain the git-versioner p
 [source, xml]
 ----
 <plugin>
-    <groupId>com.github.manikmagar</groupId>
+    <groupId>org.emergent.maven</groupId>
     <artifactId>git-versioner-maven-plugin</artifactId>
     <executions>
       <execution>

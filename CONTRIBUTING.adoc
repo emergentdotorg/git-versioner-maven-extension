@@ -47,20 +47,20 @@ _To trigger the release:_
 .Example goal to increment patch
 [source,shell]
 ----
- ./mvnw com.github.manikmagar:git-versioner-maven-plugin:V-LATEST-SNAPSHOT:commit-patch --non-recursive
+ ./mvnw org.emergent.maven:git-versioner-maven-plugin:V-LATEST-SNAPSHOT:commit-patch --non-recursive
 ----
 
 .Example goal to increment minor
 [source,shell]
 ----
- ./mvnw com.github.manikmagar:git-versioner-maven-plugin:V-LATEST-SNAPSHOT:commit-minor --non-recursive
+ ./mvnw org.emergent.maven:git-versioner-maven-plugin:V-LATEST-SNAPSHOT:commit-minor --non-recursive
 ----
 
 *Verify* the new version by running plugin's `print` goal -
 
 [source,shell]
 ----
- ./mvnw com.github.manikmagar:git-versioner-maven-plugin:V-LATEST-SNAPSHOT:print --non-recursive
+ ./mvnw org.emergent.maven:git-versioner-maven-plugin:V-LATEST-SNAPSHOT:print --non-recursive
 ----
 
 In the output, you can look for version -
@@ -78,7 +78,7 @@ In the output, you can look for version -
 
 [source,shell]
 ----
-./mvnw com.github.manikmagar:git-versioner-maven-plugin:V-LATEST-SNAPSHOT:tag --non-recursive
+./mvnw org.emergent.maven:git-versioner-maven-plugin:V-LATEST-SNAPSHOT:tag --non-recursive
 ----
 
 This should create a tag with current verison.
@@ -107,6 +107,6 @@ tagName=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout)
 git push origin v$tagName
 ----
 
-*Monitor* GitHub Actions Workflows for https://github.com/manikmagar/git-versioner-maven-plugin/actions/workflows/release.yml[release].
+*Monitor* GitHub Actions Workflows for https://github.com/emergentdotorg/git-versioner-maven-plugin/actions/workflows/release.yml[release].
 
 Once the pipeline succeeds, the new release should soon be available on

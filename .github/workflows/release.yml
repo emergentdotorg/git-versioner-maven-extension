@@ -1,8 +1,8 @@
 name: tag-and-release
 on:
-  push:
-    tags:
-      - 'v*'
+  #push:
+  #  tags:
+  #    - 'v*'
 
 env:
   JAVA_VERSION: '11'

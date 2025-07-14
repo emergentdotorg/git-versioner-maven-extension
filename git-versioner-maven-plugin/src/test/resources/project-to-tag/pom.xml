@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.manikmagar</groupId>
+  <groupId>org.emergent.maven</groupId>
   <artifactId>versioner-maven-plugin-test</artifactId>
   <version>0.0.0</version>
   <packaging>jar</packaging>
@@ -19,7 +19,7 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>com.github.manikmagar</groupId>
+        <groupId>org.emergent.maven</groupId>
         <artifactId>git-versioner-maven-plugin</artifactId>
         <version>V-LATEST-SNAPSHOT</version>
         <executions>

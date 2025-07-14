@@ -1,0 +1,22 @@
+name: Maven Release
+
+on:
+  #push:
+  #  branches:
+  #    - main
+  #    - master
+  workflow_dispatch:
+
+jobs:
+  invoke-release:
+    uses: emergentdotorg/github-actions/.github/workflows/maven-release.yaml@main
+    secrets: inherit
+    with:
+      java-version: '11'
+      deploy-server: 'emergent-nexus'
+
+  process-results:
+    runs-on: ubuntu-latest
+    needs: invoke-release
+    steps:
+      - run: echo version=${{ needs.invoke-release.outputs.version }}

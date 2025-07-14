@@ -5,10 +5,10 @@ project:
     Generate maven project version from git commit logs.
 
   links:
-    homepage: https://github.com/manikmagar/
-    documentation: https://github.com/manikmagar/git-versioner-maven-plugin
-    license: https://github.com/manikmagar/git-versioner-maven-plugin/blob/main/LICENSE
-    contribute: https://github.com/manikmagar/mulefd/blob/main/README.adoc
+    homepage: https://github.com/emergentdotorg/
+    documentation: https://github.com/emergentdotorg/git-versioner-maven-plugin
+    license: https://github.com/emergentdotorg/git-versioner-maven-plugin/blob/main/LICENSE
+    contribute: https://github.com/emergentdotorg/mulefd/blob/main/README.adoc
   authors:
     - Manik Magar
   license: MIT
@@ -21,7 +21,7 @@ project:
     - maven-extension
     - maven-plugin
   java:
-    groupId: com.github.manikmagar
+    groupId: org.emergent.maven
     version: 11
 
 release:
